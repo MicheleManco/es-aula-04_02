@@ -45,5 +45,10 @@
 
 <h2>{{ Auth::user() -> name }}</h2>
 <a class="btn btn-secondary" href="{{ route('logout') }}">LOGOUT</a>
+
+
+
+{{-- lista dei film --}}
+
 @endguest
 @endsection
