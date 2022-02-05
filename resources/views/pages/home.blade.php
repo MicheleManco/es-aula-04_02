@@ -45,9 +45,16 @@
 
 <h2>{{ Auth::user() -> name }}</h2>
 <a class="btn btn-secondary" href="{{ route('logout') }}">LOGOUT</a>
+<br>
+<br>
+<hr>
+<br>
 
-
-
+@foreach ($posts as $post) 
+<li><a href="{{ route('home', $post -> id )}}">{{$post -> title}}</a> - {{$post -> date}}
+    {{-- <a href="{{route('home', $post -> id)}}">EDIT</a> - <a href="{{route('delete', $post -> id)}}">DELETE</a> --}}
+</li> 
+@endforeach 
 {{-- lista dei film --}}
 
 @endguest

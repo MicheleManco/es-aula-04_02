@@ -9,8 +9,7 @@ class GuestController extends Controller
 {
     public function home(){
         $posts = Post::all(); 
-         return view('pages.home');
+         return view('pages.home',compact('posts'));
     }
-
-    
+ 
 }
