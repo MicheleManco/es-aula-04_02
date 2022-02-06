@@ -7,16 +7,16 @@
     @method('post')
     @csrf
     <label for="name">name</label>
-    <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <input id="name" type="text" name="name">
 
     <label for="email">Email</label>
-    <input id="email" type="email"  name="email" value="{{ old('email') }}" required autocomplete="email">
+    <input id="email" type="email"  name="email">
 
     <label for="password">password</label>
-    <input id="password" type="password" name="password" required autocomplete="new-password">
+    <input id="password" type="password" name="password">
 
     <label for="password-confirm">conferma password</label>
-    <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
+    <input id="password-confirm" type="password" name="password_confirmation">
 
     <button type="submit" class="btn btn-primary">Register</button>
 </form> 
@@ -29,13 +29,13 @@
     @method('post')
     @csrf
     <label for="name">name</label>
-    <input id="name" type="text" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+    <input id="name" type="text" name="name">
 
     <label for="email">Email</label>
-    <input id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
+    <input id="email" type="email" name="email">
 
     <label for="password">password</label>
-    <input id="password" type="password" name="password" required autocomplete="new-password">
+    <input id="password" type="password" name="password">
 
     <button type="submit" class="btn btn-primary">login</button>
 </form> 
@@ -49,13 +49,19 @@
 <br>
 <hr>
 <br>
+<a href="{{route('create')}}">create new</a>
 
 @foreach ($posts as $post) 
-<li><a href="{{ route('home', $post -> id )}}">{{$post -> title}}</a> - {{$post -> date}}
-    {{-- <a href="{{route('home', $post -> id)}}">EDIT</a> - <a href="{{route('delete', $post -> id)}}">DELETE</a> --}}
+<li>
+    <a href="{{ route('home', $post -> id )}}"></a> 
+    {{$post -> title}}
+    <br> 
+    {{$post -> text}} - {{$post -> author}} <br>
+    {{$post-> date}}
+    <br>
+    <br>
 </li> 
 @endforeach 
-{{-- lista dei film --}}
 
 @endguest
 @endsection
