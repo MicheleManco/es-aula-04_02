@@ -21,7 +21,7 @@ class GuestController extends Controller
             'title'=> 'required|string|max:255',
             'author'=> 'required|string|max:255',
             'subtitle'=> 'string|max:255',
-            'text'=> 'required|string|max:255',
+            'text'=> 'required|string',
             'date'=> 'required|date'
         ]);
 
