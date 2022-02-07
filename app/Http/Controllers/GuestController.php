@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class GuestController extends Controller
 {
@@ -13,7 +14,7 @@ class GuestController extends Controller
     }
 
     public function create(){
-        $cateogries = Category::all();
+        $categories = Category::all();
         return view('pages.createPost',compact('categories'));
     }
 
