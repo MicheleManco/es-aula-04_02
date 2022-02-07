@@ -22,6 +22,13 @@
     <label for="date">data</label>
     <input type="date" name="date">
     <br>
+
+    <select name="category_id">
+        @foreach ($categories as $category)
+            <option value="{{ $category -> id }}">{{$category -> name}}</option>
+        @endforeach
+    </select>
+
     <button type="submit" class="btn btn-primary">CREATE</button>    
 </form>
     

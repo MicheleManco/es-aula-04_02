@@ -20,7 +20,14 @@ class CreatePostsTable extends Migration
             $table->string('subtitle');
             $table->text('text');
             $table->date('date');
+            
             $table->timestamps();
+            
+            $table -> unsignedBigInteger('category_id');
+            $table  -> foreign('category_id')
+                    -> references('id')
+                    -> on('categories');
+
         });
     }
 

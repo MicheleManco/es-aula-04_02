@@ -13,7 +13,8 @@ class GuestController extends Controller
     }
 
     public function create(){
-        return view('pages.createPost');
+        $cateogries = Category::all();
+        return view('pages.createPost',compact('categories'));
     }
 
     public function store(Request $request){
@@ -24,6 +25,12 @@ class GuestController extends Controller
             'text'=> 'required|string',
             'date'=> 'required|date'
         ]);
+
+        $category = Category::findOrFail($request ->get('category_id'));
+        $post = Post::make($data);
+
+        $post -> category() -> associate($category);
+        $post -> save();
 
         $post = Post::create($data);
         return redirect() ->route('home');
