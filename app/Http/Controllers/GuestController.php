@@ -33,7 +33,7 @@ class GuestController extends Controller
         $post -> category() -> associate($category);
         $post -> save();
 
-        $post = Post::create($data);
+        // $post = Post::create($data);
         return redirect() ->route('home');
     }
  
