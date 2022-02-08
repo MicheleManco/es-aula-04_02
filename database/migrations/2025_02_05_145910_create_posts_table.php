@@ -28,6 +28,11 @@ class CreatePostsTable extends Migration
                     -> references('id')
                     -> on('categories');
 
+            // $table ->unsignedBigInteger('post_tag_id')->nullable();
+            // $table ->foreign('post_tag_id')
+            //         ->references('id')
+            //         ->on('post_tag');
+
         });
     }
 

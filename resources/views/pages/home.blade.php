@@ -57,7 +57,12 @@
     {{$post -> title}}
     <br> 
     {{$post -> text}} - {{$post -> author}} <br>
-    {{$post-> date}}
+    {{$post-> date}} - {{$post->category->name}} - tags: 
+
+    @foreach ($post->tags as $tag)
+    {{$tag ->name}}
+    @endforeach
+
     <br>
     <br>
 </li> 

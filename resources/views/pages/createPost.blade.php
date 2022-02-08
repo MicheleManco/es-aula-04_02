@@ -28,6 +28,10 @@
             <option value="{{ $category -> id }}">{{$category -> name}}</option>
         @endforeach
     </select>
+    
+    @foreach ($tags as $tag)
+        <input type="checkbox" name="tags[]" value="{{$tag -> id}}">{{$tag -> name}} <br>
+    @endforeach
 
     <button type="submit" class="btn btn-primary">CREATE</button>    
 </form>

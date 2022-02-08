@@ -5,17 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
+use App\Tag;
 
 class GuestController extends Controller
 {
     public function home(){
         $posts = Post::all(); 
-         return view('pages.home',compact('posts'));
+        $tags = Tag::all();
+         return view('pages.home',compact('posts','tags'));
     }
 
     public function create(){
         $categories = Category::all();
-        return view('pages.createPost',compact('categories'));
+        $tags = Tag::all();
+        return view('pages.createPost',compact('categories', 'tags'));
     }
 
     public function store(Request $request){
@@ -33,7 +36,9 @@ class GuestController extends Controller
         $post -> category() -> associate($category);
         $post -> save();
 
-        // $post = Post::create($data);
+        $tags = Tag::findOrFail($request -> get('tags'));
+        $post -> tags() -> attach($tags);
+        $post -> save();
         return redirect() ->route('home');
     }
  
