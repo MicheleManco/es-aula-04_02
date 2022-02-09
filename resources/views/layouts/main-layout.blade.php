@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="{{ asset('/js/app.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
-    <title>login</title>
+    <title>forum</title>
 </head>
 <body>
 

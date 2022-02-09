@@ -54,15 +54,20 @@
 @foreach ($posts as $post) 
 <li>
     <a href="{{ route('home', $post -> id )}}"></a> 
+
     {{$post -> title}}
+    
     <br> 
+
     {{$post -> text}} - {{$post -> author}} <br>
-    {{$post-> date}} - {{$post->category->name}} - tags: 
+    {{$post-> date}} - {{$post->category->name}} - Tags: 
 
     @foreach ($post->tags as $tag)
     {{$tag ->name}}
     @endforeach
-
+    <br>
+    <a class="btn btn-secondary" href="{{route('edit', $post -> id)}}">EDIT</a>
+    <a class="btn btn-danger" href="{{route('delete', $post -> id)}}">DELETE</a>
     <br>
     <br>
 </li> 
